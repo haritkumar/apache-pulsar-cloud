@@ -2,6 +2,7 @@
 ![Apache Pulsar 2.4.0](pulsar-system-architecture.png)
 
 Apache Pulsar is an open-source distributed pub-sub messaging system originally created at Yahoo and now part of the Apache Software Foundation.
+Developer Guide https://dzone.com/articles/a-developers-introduction-to-the-pulsar-streaming
 
 ### Run apache pulsar (standalone)
 ```sh
