@@ -12,6 +12,7 @@ docker run -p 6650:6650 -p 8080:8080 haritkumar/apache-pulsar:2.4.0
 ```sh
 docker run -p 3000:3000 haritkumar/pulsar-express:latest
 ```
+![express](ui.png)
 
 ### Run apache pulsar-client (Producer/Consumer)
 ```sh
@@ -34,6 +35,10 @@ http://localhost:9000/test-pulsar?content=hello%20pulsor
 ```
 ![console output](console.png)
 
+### Test Bulk Load
+```sh
+sh bulk-producer.sh 10000
+```
 
 #### Get docker container's IP
 ```sh
