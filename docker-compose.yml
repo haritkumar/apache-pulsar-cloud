@@ -1,0 +1,26 @@
+version: '2.1'
+services:
+  apache-pulsar:
+    image: haritkumar/apache-pulsar:2.4.0
+    ports:
+      - '8080:8080'
+      - '6650:6650'
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:8080/admin/v2/persistent/public/default/my-topic/stats"]
+        interval: 30s
+        timeout: 10s
+        retries: 5  
+    networks:
+      - pulsarnet
+  pulsar-client:
+    image: haritkumar/pulsar-client:latest
+    depends_on:
+      apache-pulsar:
+        condition: service_healthy
+    ports:
+      - '9000:9000'
+    networks:
+      - pulsarnet    
+
+networks:
+  pulsarnet:      

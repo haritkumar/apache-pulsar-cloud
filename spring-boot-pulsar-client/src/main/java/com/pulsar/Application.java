@@ -14,13 +14,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class SpringBootPulsarClientApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootPulsarClientApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 	
-	private static final String SERVICE_URL = "pulsar://localhost:6650";
+	private static final String SERVICE_URL = "pulsar://apache-pulsar:6650";
 	private static final String TOPIC_NAME = "test-topic";
 	private static final String SUBSCRIPTION_NAME = "test-subscription";
 	

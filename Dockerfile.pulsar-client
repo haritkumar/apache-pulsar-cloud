@@ -1,0 +1,6 @@
+FROM haritkumar/oracle_jdk:8_unlimited_jce_ubuntu_16.04
+
+COPY spring-boot-pulsar-client/target/spring-boot-pulsar-client-0.0.1-SNAPSHOT.jar /opt/spring-boot-pulsar-client-0.0.1-SNAPSHOT.jar
+WORKDIR /opt
+EXPOSE 9000
+CMD ["java","-jar","spring-boot-pulsar-client-0.0.1-SNAPSHOT.jar"]
