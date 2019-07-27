@@ -1,4 +1,0 @@
-[
-    { "name": "test cluster", 
-       "url": "http://apache-pulsar:8080" }
-]
