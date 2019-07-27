@@ -6,7 +6,7 @@ services:
       - '8080:8080'
       - '6650:6650'
     healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost:8080/admin/v2/persistent/public/default/my-topic/stats"]
+        test: ["CMD", "curl", "-f", "http://localhost:8080/admin/v2/persistent/public/default"]
         interval: 30s
         timeout: 10s
         retries: 5  
@@ -20,7 +20,19 @@ services:
     ports:
       - '9000:9000'
     networks:
-      - pulsarnet    
+      - pulsarnet  
+  pulsar-express:
+    image: haritkumar/pulsar-express:latest
+    depends_on:
+      apache-pulsar:
+        condition: service_healthy
+    ports:
+      - '3000:3000'
+    environment:
+        - PE_CONNECTION_URL=http://apache-pulsar:8080  
+        - PE_CONNECTION_NAME=test-cluster
+    networks:
+      - pulsarnet      
 
 networks:
   pulsarnet:      
